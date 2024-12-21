@@ -13,7 +13,7 @@
 
 
 ## Turno Pratico Labotarial:
-PL2
+PL1
 
 ## Regime de ensino:
 Diurno
