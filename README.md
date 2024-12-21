@@ -1,7 +1,6 @@
 # PWC
-
+![politcnico logo](politecnico_logo.jpg)
 ## Numero do grupo:
-
 
 ## Elementos do grupo:
 
