@@ -1,0 +1,81 @@
+#LogotipoHeader{
+    width: 20%;
+    height: 20%;
+}
+
+
+#header{
+    padding: 20px;
+}
+
+
+
+#zonaConteudo{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#Elemento{
+    display: flex;
+    align-items: start;
+    gap: 30px;
+}
+
+#Mensagem{
+    resize: none;
+    height: 150px;
+}
+
+#LogotipoFooter{
+    width: 20%;
+    height: 20%;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+}
+
+.footer-links {
+    margin-bottom: 20px; 
+}
+
+.footer-links a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 20px; 
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-divider {
+    border-top: 1px solid #ccc;
+    margin: 20px auto;
+    width: 100%;
+}
+
+.social-icons {
+    margin-top: 20px; 
+}
+
+.social-icons a {
+    color: #007bff;
+    font-size: 24px;
+    margin: 0 15px; 
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.social-icons a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+  

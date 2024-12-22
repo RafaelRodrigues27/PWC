@@ -1,0 +1,39 @@
+body{
+    text-align: center;
+}
+
+#logotipo{
+    width: 20%;
+    height: 20%;
+}
+
+.carousel-inner{
+    width: 70%;
+    height: 10%;
+}
+
+#zonaConteudo .h2 {
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#zonaConteudo .text1 {
+    font-family: Arial;
+    font-size: 14px;
+    width: 600px;
+    line-height: 20px;
+}
+
+#Explora{
+    background: rgba(0, 0, 0, 0.7) url('Central_Park.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    padding: 150px;
+    padding-bottom: 150px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    
+}
+
