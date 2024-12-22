@@ -2,27 +2,28 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Cinema 1</title>
+        <title>Países</title>
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="styles/normalize.css">
+        <link rel="stylesheet" href="Css/PaísesCss.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles/styles.css">
-        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">        
     </head>
     <body>
-      <div class="container">
+      <section id="header">
         <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
-            <img src="img/cinema_logo.jpg" id="logotipo">
-          </a>
-    
-          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Homepage</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Filmes</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Serviços</a>
-            <a class="py-2 link-body-emphasis text-decoration-none" href="#">Promoções</a>
-          </nav>
+            <a href="https://www.ipleiria.pt/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+                <img src="imagens\Logótipo_Politécnico_Leiria_01.png" id="LogotipoHeader">
+            </a>
+            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                <a class="me-5 py-2 link-body-emphasis text-decoration-none" href="HomePage.html">Home</a>
+                <a class="me-5 py-2 link-body-emphasis text-decoration-none" href="Países.html">Países</a>
+                <a class="me-5 py-2 link-body-emphasis text-decoration-none" href="Loja.html">Loja</a>
+                <a class="me-5 py-2 link-body-emphasis text-decoration-none" href="Favoritos.html">Favoritos</a>
+                <a href="Contactos.html" class="me-4"><button type="button" class="btn btn-outline-primary">Contactos</button></a>                        
+            </nav>
         </div> 
+      </section>
+      <div class="container">
           <section id="zonaConteudo">
               <header>
                 <div class="search-container">
@@ -62,16 +63,47 @@
           </section>
 
 
-        <footer class="text-body-secondary py-5">
-          <div class="container">
-            <p class="float-end mb-1">
-              <a href="#">Back to top</a>
-            </p>
-            <p>@Copyright 2024 Leiria</p>
-          </div>
-        </footer>
+   
       </div>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/lquery/3.7.1/jquery"></script>
-      <script type="text/javascript" src="js/script.js"></script>
-    </body>
+      <footer class="footer text-center">
+        <div class="container">
+          <!-- Logotipo e Links-->
+          <div class="mb4">
+              <img src="imagens/Logótipo_Politécnico_Leiria_01.png" alt="Logotipo" id="LogotipoFooter"/>
+              <div class="footer-links mt-3">
+                  <a href="Homepage.html">Home</a>
+                  <a href="Países.html">Países</a>
+                  <a href="Loja.html">Loja</a>
+                  <a href="Sobre.html">Sobre</a>
+                  <a href="Contactos.html">Contactos</a>
+              </div>
+          </div>
+          
+          <!--Redes Sociais-->
+          <div class="social-icons">
+              <a href="https://linkedin.com" aria-label="LinkedIn">
+                  <i class="bi bi-linkedin"></i>
+              </a>
+              <a href="https://facebook.com" aria-label="Facebook">
+                  <i class="bi bi-facebook"></i>
+              </a>
+              <a href="https://instagram.com" aria-label="Instagram">
+                  <i class="bi bi-instagram"></i>
+              </a>
+              <a href="https://twitter.com" aria-label="X (Twitter)">
+                  <i class="bi bi-twitter"></i>
+              </a>
+          </div>
+
+          <div class="footer-divider"></div>
+
+          <!-- Copyright -->
+          <p >
+              © 2024 Direitos de Autor, Todos os direitos reservados
+          </p>
+        </div>
+      </footer>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/lquery/3.7.1/jquery"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
 </html>
