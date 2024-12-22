@@ -1,3 +1,13 @@
+#LogotipoHeader{
+    width: 20%;
+    height: 20%;
+}
+
+
+#header{
+    padding: 20px;
+}
+
 body{
     text-align: center;
     margin: 0%;
@@ -19,13 +29,20 @@ h1{
     height: 20%;
 }
 
+#Japão{
+    background-color: #e0e0e0;
+}
+
+#Austrália{
+    background-color: #000;
+}
+
 .carousel-item {
     text-align: center;
-    background-color: #eaeaea; 
   }
 
 .carousel-item img {
-    margin-left: 20px;
+    margin-left: 50px;
   }
 
 #zonaConteudo{
