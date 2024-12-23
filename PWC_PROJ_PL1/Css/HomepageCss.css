@@ -18,6 +18,7 @@ h1{
     font-family:Arial, Helvetica, sans-serif;
     text-align: center;
     font-weight: bold;
+    margin-top: 40px;
 }
 
 .card{
@@ -31,10 +32,15 @@ h1{
 
 #Japão{
     background-color: #e0e0e0;
+    text-align: left;
+    padding-left: 160px ;
 }
 
 #Austrália{
     background-color: #000;
+    color: #ffffff;
+    text-align: left;
+    padding-left: 160px ;
 }
 
 .carousel-item {
