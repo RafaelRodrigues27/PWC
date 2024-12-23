@@ -1,6 +1,7 @@
 # PWC
 ![politcnico logo](politecnico_logo.jpg)
 ## Numero do grupo:
+PL1-J
 
 ## Elementos do grupo:
 
