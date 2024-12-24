@@ -1,74 +1,58 @@
-console.log(entrei)
+console.log("Script Loaded");
 
-document.getElementById("contact-form").addEventListener('submit', function(event) {
+document.querySelector("form").addEventListener('submit', function(event) {
     event.preventDefault();
     validateForm();
 });
 
-function validateForm(){
-    var mensagemErro = false;
+function validateForm() {
+    let mensagemErro = "";
 
-    //Text
-    var Nome = document.getElementById('nome');
-
-    console.log("Nome");
-    console.log(Nome.value);
-
-    if(Nome.value.length < 2){
-        mensagemErro = "Por favor, insira o seu nome (minimo 2 caracteres)"
-        showError('nome', mensagemErro);
+    // Nome Completo Validation
+    const nome = document.getElementById('NomeCompleto');
+    if (nome.value.trim().length < 2) {
+        mensagemErro += "Por favor, insira o seu nome (mínimo 2 caracteres).\n";
     }
 
-    var Mensagem = document.getElementById('Mensagem');
-
-    if(Mensagem.value.legth < 5){
-        mensagemErro = "Por favor, insira uma mensagem";
+    // Gênero Validation
+    const generoFeminino = document.getElementById("Feminino");
+    const generoMasculino = document.getElementById("Masculino");
+    if (!generoFeminino.checked && !generoMasculino.checked) {
+        mensagemErro += "Por favor, escolha o seu gênero.\n";
     }
 
-    var generoFeminino = document.getElementById("Feminino");
-    var generoMAsculino = document.getElementById("Masculino");
-
-    if(!generoFeminino.checked && !generoMAsculino){
-        mensagemErro = "por favor, escolha o seu género";
+    // Email Validation
+    const email = document.getElementById('Email');
+    if (!validateEmail(email.value)) {
+        mensagemErro += "Por favor, insira um email válido.\n";
     }
 
-    //CheckBox
-    var termos = documentos.getElementById('termos');
-
-    if(termos.checked){
-        mensagemErro = "Tem de aceitar os termos e condições";
+    // Telefone Validation
+    const telemovel = document.getElementById('Telemovel');
+    if (!validatePhoneNumber(telemovel.value)) {
+        mensagemErro += "Por favor, insira um número de telefone válido (9 dígitos).\n";
     }
 
-    //Email
-    var Email = document.getElementById('Email');
-    if(validateEmail(Email.value) == false){
-        mensagemErro = "Por favor, insira um email válido";
+    // Mensagem Validation
+    const mensagem = document.getElementById('Mensagem');
+    if (mensagem.value.trim().length < 5) {
+        mensagemErro += "Por favor, insira uma mensagem (mínimo 5 caracteres).\n";
+    }
+
+    if (mensagemErro) {
+        alert(mensagemErro);
+    } else {
+        alert("Formulário enviado com sucesso!");
     }
 }
 
-function validateEmail(){
-    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Helper Functions
+function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
 
-function showError(campoID, mensagem){
-    var elemento = document.getElementById(campoID);
-    if(elemento |= null){
-        if(elemento.type == "radio"){
-            var lastradio = document.getElementsByName(elemento.name).item(2);
-            lastradio.classList.add("is-invalid")
-        }else {
-        var feedbackDiv = document.querySelector( '#$(campoID) ~ .invalid-feedback');
-        // ou
-       //var feedbackDiv = document.querySelector('#'+campoID + "~ .invalid-feedback");
-       if(feedbackDiv != null){
-        feedbackDiv.textContnt = mensagem;
-        feedbackDiv,style.display
-       }
-       }
-    }
-}
-
-function hideError(campoID, mensagem){
-
+function validatePhoneNumber(phone) {
+    const regex = /^\d{9}$/; // Matches exactly 9 digits
+    return regex.test(phone);
 }
