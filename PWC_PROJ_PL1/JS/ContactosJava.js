@@ -11,28 +11,28 @@ function validateForm() {
     // Flag to track if the form is valid
     let isValid = true;
 
-    // Validate Nome
+    // Validates the Name
     var Nome = document.getElementById('Nome');
     if (Nome.value.length < 2) {
         isValid = false;
         showError("Nome", "Insira o nome completo");
     }
 
-    // Validate Email
+    // Validates the Email
     var Email = document.getElementById("Email");
     if (!validateEmail(Email.value)) {
         isValid = false;
         showError("Email", "Insira um email válido");
     }
 
-    // Validate Telemovel
+    // Validates the Phone Number
     var Telemovel = document.getElementById("Telemovel");
     if (!validateTelemovel(Telemovel.value)) {
         isValid = false;
         showError("Telemovel", "Insira um telemovel válido");
     }
 
-    // Validate Genero
+    // Validates if there is option select for the Gender
     var GeneroMasculino = document.getElementById("Masculino");
     var GeneroFeminino = document.getElementById("Feminino");
     if (!GeneroMasculino.checked && !GeneroFeminino.checked) {
@@ -40,14 +40,14 @@ function validateForm() {
         showError("Masculino", "Escolha o seu gênero");
     }
 
-    // Validate Mensagem
+    // Validates the Message
     var Mensagem = document.getElementById("Mensagem");
     if (Mensagem.value.length < 5) {
         isValid = false;
         showError("Mensagem", "Insira mensagem");
     }
 
-    // Validate Termos
+    // Validates the Terms and Conditions
     var Termos = document.getElementById("Termos");
     if (!Termos.checked) {
         isValid = false;
@@ -57,11 +57,12 @@ function validateForm() {
     // If the form is valid, proceed to submit and refresh the page
     if (isValid) {
         alert("Formulário enviado com sucesso!");
-        // Reload the page to simulate a refresh
-        location.reload(); // This refreshes the page
+        // Refreshs the page
+        location.reload();
     }
 }
 
+//Shows the errors of validations
 function showError(campoID, mensagem) {
     var elemento = document.getElementById(campoID);
     if (elemento) {
@@ -74,6 +75,7 @@ function showError(campoID, mensagem) {
     }
 }
 
+//Hides the errors from validation
 function clearAllErrors() {
     // Remove the "is-invalid" class from all inputs
     var inputs = document.querySelectorAll(".is-invalid");
@@ -89,11 +91,13 @@ function clearAllErrors() {
     });
 }
 
+//Validtes if is an Email
 function validateEmail(Email) {
     var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(Email);
 }
 
+//Validates if it is a Phone Number
 function validateTelemovel(Telemovel) {
     var regex = /^[\s()+-]*([0-9][\s()+-]*){6,20}$/;
     return regex.test(Telemovel);
