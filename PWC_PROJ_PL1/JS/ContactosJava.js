@@ -1,58 +1,100 @@
-console.log("Script Loaded");
-
-document.querySelector("form").addEventListener('submit', function(event) {
-    event.preventDefault();
-    validateForm();
+// Prevent the default form submission and handle validation manually
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission (page reload)
+    validateForm(); // Call the validation function
 });
 
 function validateForm() {
-    let mensagemErro = "";
+    // Clear all previous errors
+    clearAllErrors();
 
-    // Nome Completo Validation
-    const nome = document.getElementById('NomeCompleto');
-    if (nome.value.trim().length < 2) {
-        mensagemErro += "Por favor, insira o seu nome (mínimo 2 caracteres).\n";
+    // Flag to track if the form is valid
+    let isValid = true;
+
+    // Validate Nome
+    var Nome = document.getElementById('Nome');
+    if (Nome.value.length < 2) {
+        isValid = false;
+        showError("Nome", "Insira o nome completo");
     }
 
-    // Gênero Validation
-    const generoFeminino = document.getElementById("Feminino");
-    const generoMasculino = document.getElementById("Masculino");
-    if (!generoFeminino.checked && !generoMasculino.checked) {
-        mensagemErro += "Por favor, escolha o seu gênero.\n";
+    // Validate Email
+    var Email = document.getElementById("Email");
+    if (!validateEmail(Email.value)) {
+        isValid = false;
+        showError("Email", "Insira um email válido");
     }
 
-    // Email Validation
-    const email = document.getElementById('Email');
-    if (!validateEmail(email.value)) {
-        mensagemErro += "Por favor, insira um email válido.\n";
+    // Validate Telemovel
+    var Telemovel = document.getElementById("Telemovel");
+    if (!validateTelemovel(Telemovel.value)) {
+        isValid = false;
+        showError("Telemovel", "Insira um telemovel válido");
     }
 
-    // Telefone Validation
-    const telemovel = document.getElementById('Telemovel');
-    if (!validatePhoneNumber(telemovel.value)) {
-        mensagemErro += "Por favor, insira um número de telefone válido (9 dígitos).\n";
+    // Validate Genero
+    var GeneroMasculino = document.getElementById("Masculino");
+    var GeneroFeminino = document.getElementById("Feminino");
+    if (!GeneroMasculino.checked && !GeneroFeminino.checked) {
+        isValid = false;
+        showError("Masculino", "Escolha o seu gênero");
     }
 
-    // Mensagem Validation
-    const mensagem = document.getElementById('Mensagem');
-    if (mensagem.value.trim().length < 5) {
-        mensagemErro += "Por favor, insira uma mensagem (mínimo 5 caracteres).\n";
+    // Validate Mensagem
+    var Mensagem = document.getElementById("Mensagem");
+    if (Mensagem.value.length < 5) {
+        isValid = false;
+        showError("Mensagem", "Insira mensagem");
     }
 
-    if (mensagemErro) {
-        alert(mensagemErro);
-    } else {
+    // Validate Termos
+    var Termos = document.getElementById("Termos");
+    if (!Termos.checked) {
+        isValid = false;
+        showError("Termos", "Aceite os termos e condições");
+    }
+
+    // If the form is valid, proceed to submit and refresh the page
+    if (isValid) {
         alert("Formulário enviado com sucesso!");
+        // Reload the page to simulate a refresh
+        location.reload(); // This refreshes the page
     }
 }
 
-// Helper Functions
-function validateEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
+function showError(campoID, mensagem) {
+    var elemento = document.getElementById(campoID);
+    if (elemento) {
+        elemento.classList.add("is-invalid");
+        var feedbackdiv = document.querySelector(`#${campoID} ~ .invalid-feedback`);
+        if (feedbackdiv) {
+            feedbackdiv.textContent = mensagem;
+            feedbackdiv.style.display = "block";
+        }
+    }
 }
 
-function validatePhoneNumber(phone) {
-    const regex = /^\d{9}$/; // Matches exactly 9 digits
-    return regex.test(phone);
+function clearAllErrors() {
+    // Remove the "is-invalid" class from all inputs
+    var inputs = document.querySelectorAll(".is-invalid");
+    inputs.forEach(function(input) {
+        input.classList.remove("is-invalid");
+    });
+
+    // Hide all feedback messages
+    var feedbacks = document.querySelectorAll(".invalid-feedback");
+    feedbacks.forEach(function(feedback) {
+        feedback.style.display = "none";
+        feedback.textContent = "";
+    });
+}
+
+function validateEmail(Email) {
+    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(Email);
+}
+
+function validateTelemovel(Telemovel) {
+    var regex = /^[\s()+-]*([0-9][\s()+-]*){6,20}$/;
+    return regex.test(Telemovel);
 }

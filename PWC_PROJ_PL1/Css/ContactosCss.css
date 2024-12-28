@@ -3,9 +3,28 @@
     height: 20%;
 }
 
-
 #header{
     padding: 20px;
+}
+
+#Nome {
+    margin-bottom: 10px;
+}
+
+#Email {
+    margin-bottom: 10px;
+}
+
+#Telemovel {
+    margin-bottom: 20px;
+}
+
+#Mensagem {
+    margin-top: 10px; /* Adds space above the "Mensagem" input */
+}
+
+.form-check:last-of-type {
+    margin-bottom: 20px; /* Add spacing below the last radio button */
 }
 
 #zonaConteudo{
