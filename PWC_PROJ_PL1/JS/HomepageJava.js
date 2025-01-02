@@ -1,29 +1,34 @@
 const carousel = new bootstrap.Carousel('#carouselExampleControls')
 
-$.ajax({
-    method: 'GET',
-    url: 'https://restcountries.com/v3.1/all?fields=' + valorPesquisa
-
-}).done(function(dados){
-    console.log(dados);
-    var randomIndex = Math.floor(Math.random() * dados.length);
-    var randomCountry = dados[randomIndex];
-
-    //1 forma
-    for(var i=0; i< dados.Search.lenght; i++) {
-        console.log(dados.Search[i]);
-        var cloneCard = cloneOriginalCard.clone();
-        $('.name', cloneCard).html( /*país*/name);
-        $('.flag', cloneCard).attr("src,dados.Search[i]".flag);
+async function getData(country) {
+    const url = "https://restcountries.com/v3.1/name/" + country;
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      processData(json);
+    } catch (error) {
+      console.error(error.message);
     }
-
-    var objetoCountry = {
-        "flag" : dados.Search[i].img,
-        "name": dados.Search[i].Title,
-    };
-
-    var stringobjetoCountry = JSON.stringify(objetoCountry);
-
-    $('lista-paises').append(cloneCard);
-
-});
+  }
+  
+  function processData(json) {
+      var myDiv = document.getElementById('test');
+      
+      var myLabel = document.createElement("label");
+      myLabel.innerHTML = json[0].name.official + "<br/>";
+      myDiv.appendChild(myLabel);
+      
+      var flag = document.createElement('img');
+      flag.src = json[0].flags.png
+      myDiv.appendChild(flag);
+      
+      var myBreakLine = document.createElement("label");
+      myBreakLine.innerHTML = "<br/><br/>";
+      myDiv.appendChild(myBreakLine);
+  }
+  
+  window.onload = function() {
+    getData("Portugal");
+    getData("Grenada");
+    getData("Spain");
+  };
