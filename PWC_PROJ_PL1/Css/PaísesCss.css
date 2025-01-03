@@ -1,9 +1,9 @@
-#LogotipoHeader{
+#LogotipoHeader {
     width: 20%;
     height: 20%;
 }
 
-#header{
+#header {
     padding: 20px;
 }
 
@@ -14,16 +14,15 @@
     text-align: center;
     margin: 10px;
     padding: 15px;
-  }
-  
-  .card-country img {
+}
+
+.card-country img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-  }
-  
+}
 
-#LogotipoFooter{
+#LogotipoFooter {
     width: 20%;
     height: 20%;
 }
@@ -34,13 +33,13 @@
 }
 
 .footer-links {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .footer-links a {
     color: #000;
     text-decoration: none;
-    margin: 0 20px; 
+    margin: 0 20px;
 }
 
 .footer-links a:hover {
@@ -54,13 +53,13 @@
 }
 
 .social-icons {
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 .social-icons a {
     color: #007bff;
     font-size: 24px;
-    margin: 0 15px; 
+    margin: 0 15px;
     border: 2px solid #007bff;
     border-radius: 50%;
     display: inline-flex;
