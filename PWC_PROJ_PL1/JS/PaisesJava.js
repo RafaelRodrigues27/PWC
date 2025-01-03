@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
               <h5>${country.name.common}</h5>
               <p>Population: ${country.population.toLocaleString()}</p>
+              <p><strong>Capital:</strong> ${country.capital ? country.capital[0] : "N/A"}</p>
+              <p><strong>Idioma:</strong> ${Object.values(country.languages).join(", ")}</p>
               <button class="btn btn-primary" onclick="viewDetails('${country.name.common}')">Ver Detalhes</button>
               <button class="btn btn-success" onclick='addFavoritos(${JSON.stringify(country)})'>Adicionar aos Favoritos</button>
           `;
