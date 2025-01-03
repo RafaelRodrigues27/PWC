@@ -34,13 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
               <p><strong>População:</strong> ${country.population.toLocaleString()}</p>
               <p><strong>Capital:</strong> ${country.capital ? country.capital[0] : "N/A"}</p>
               <p><strong>Idioma:</strong> ${Object.values(country.languages).join(", ")}</p>
-              <button class="btn btn-primary" onclick="('${country.name.common}')">Ver Detalhes</button>
+              <button class="btn btn-primary" onclick="window.location.href = 'DetalhesPaíses.html?code=${country.cca3}'">Ver Detalhes</button>
               <button class="btn btn-success" onclick='addFavoritos(${JSON.stringify(country)})'>Adicionar aos Favoritos</button>
           `;
-          // Add click event listener to redirect to details page
-        card.addEventListener("click", () => {
-          window.location.href = `DetalhesPaíses.html?code=${country.cca3}`;
-      });
           
           countryCardsContainer.appendChild(card);
       });
@@ -63,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       if (currentPage > 1) {
-          paginationContainer.appendChild(createPageItem(currentPage - 1, "Previous"));
+          paginationContainer.appendChild(createPageItem(currentPage - 1, "Anterior"));
       }
 
       for (let i = 1; i <= totalPages; i++) {
@@ -71,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (currentPage < totalPages) {
-          paginationContainer.appendChild(createPageItem(currentPage + 1, "Next"));
+          paginationContainer.appendChild(createPageItem(currentPage + 1, "Próximo"));
       }
   }
 
