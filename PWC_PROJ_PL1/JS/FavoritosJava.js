@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
         card.innerHTML = `
           <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
           <h5>${country.name.common}</h5>
-          <p>Population: ${country.population.toLocaleString()}</p>
+          <p><strong>População:</strong> ${country.population.toLocaleString()}</p>
+          <p><strong>Capital:</strong> ${country.capital ? country.capital[0] : "N/A"}</p>
+          <p><strong>Idioma:</strong> ${Object.values(country.languages).join(", ")}</p>
           <button class="btn btn-danger" onclick='removeFavorito("${country.name.common}")'>Remover dos Favoritos</button>
         `;
   

@@ -18,6 +18,36 @@ body {
     flex: 1; /* Faz o container expandir para empurrar o footer para baixo */
 }
 
+
+.card-country {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  .card-country img.country-flag {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .card-country h5.country-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-country p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+
 #favoritos {
     margin: 20px;
     padding: 20px;
