@@ -13,6 +13,52 @@ body{
     margin: 0%;
 }
 
+
+#randomPaisesContainer .card {
+    margin: 10px;
+}
+  
+.header-container {
+    text-align: center;
+    margin-bottom: 60px;
+}
+  
+.country-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Espaçamento maior entre os cards */
+    flex-wrap: wrap;
+    margin-bottom: 60px; /* Adiciona espaço abaixo da seção de países */
+}
+  
+.country-card {
+    border: 2px solid #ddd; /* Borda padrão */
+    border-radius: 10px;
+    padding: 30px; /* Aumenta o espaço interno */
+    text-align: center;
+    width: 250px; /* Largura maior para os cards */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, border-color 0.3s;
+}
+  
+.country-card:hover {
+    transform: scale(1.1); /* Leve ampliação no hover */
+    border-color: #007bff; /* Borda azul no hover */
+}
+  
+.country-flag {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+  
+.country-name {
+    margin-top: 20px; /* Espaçamento entre a bandeira e o nome */
+    font-size: 20px; /* Fonte maior para o nome */
+    font-weight: bold;
+}
+  
+
 h1{
     font-size: 50px;
     font-family:Arial, Helvetica, sans-serif;
