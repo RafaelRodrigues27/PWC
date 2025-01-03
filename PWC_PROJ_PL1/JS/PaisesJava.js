@@ -1,4 +1,4 @@
-var cloneOriginalCard = $(".card-filme").clone();
+/*var cloneOriginalCard = $(".card-filme").clone();
 $('btn-search').on('click',function(){
 
     var valorPesquisa = $('#titulo').val();
@@ -58,4 +58,56 @@ $('btn-search').on('click',function(){
     function removeFavoritos(filme){
 
     }
-});
+});*/
+
+document.addEventListener("DOMContentLoaded", () => {
+    const apiURL = "https://restcountries.com/v3.1/all";
+    const countryCardsContainer = document.getElementById("country-cards");
+  
+    // Adicionar país aos favoritos
+    function addFavoritos(country) {
+      let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+      if (!favorites.some(fav => fav.name.common === country.name.common)) {
+        favorites.push(country);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        alert(`${country.name.common} foi adicionado aos favoritos!`);
+      } else {
+        alert(`${country.name.common} já está nos favoritos!`);
+      }
+    }
+  
+    // Renderizar cards dos países
+    function renderCountryCards(countries) {
+      countries.forEach(country => {
+        const card = document.createElement("div");
+        card.className = "col card-country";
+  
+        card.innerHTML = `
+          <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
+          <h5>${country.name.common}</h5>
+          <p>Population: ${country.population.toLocaleString()}</p>
+          <button class="btn btn-primary" onclick="viewDetails('${country.name.common}')">Ver Detalhes</button>
+          <button class="btn btn-success" onclick='addFavoritos(${JSON.stringify(country)})'>Adicionar aos Favoritos</button>
+        `;
+  
+        countryCardsContainer.appendChild(card);
+      });
+    }
+  
+    // Exibir detalhes do país
+    window.viewDetails = function (countryName) {
+      alert(`Exibindo detalhes para ${countryName}`);
+      // Redirecionar ou exibir detalhes conforme necessário
+    };
+  
+    // Carregar países da API
+    fetch(apiURL)
+      .then(response => response.json())
+      .then(data => renderCountryCards(data))
+      .catch(error => console.error("Erro ao carregar dados da API:", error));
+  
+    // Tornar a função global para o evento onclick
+    window.addFavoritos = addFavoritos;
+  });
+  
+  
