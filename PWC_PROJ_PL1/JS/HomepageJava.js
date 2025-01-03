@@ -55,7 +55,6 @@ function renderCountries(countries) {
   });
 }
 
-
 // Executar ao carregar a página
 window.onload = function () {
   getRandomCountries();

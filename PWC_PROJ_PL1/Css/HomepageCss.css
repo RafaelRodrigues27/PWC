@@ -13,6 +13,44 @@ body{
     margin: 0%;
 }
 
+.carousel {
+    position: relative;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: -30px; /* Ajuste a posição vertical conforme necessário */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    z-index: 3; /* Mantém os controles acima de outros elementos */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5%;
+    height: auto;
+}
+
+button.carousel-control-prev-icon,button.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Ajuste para maior visibilidade */
+    border-radius: 50%;
+    padding: 10px;
+}
+
+button.carousel-control-prev-icon:hover,
+button.carousel-control-next-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+button.btn-explore {
+    margin-top: 20px; /* Adicione espaço entre o texto e o botão */
+    z-index: 4;
+    position: relative;
+}
+
+
 
 #randomPaisesContainer .card {
     margin: 10px;
@@ -71,11 +109,6 @@ h1{
     padding: 20px;
 }
 
-#logotipo{
-    width: 20%;
-    height: 20%;
-}
-
 #Japão{
     background-color: #e0e0e0;
     text-align: left;
@@ -103,7 +136,6 @@ h1{
     gap: 1rem;
     justify-content: center;
 }
-
 
 #Explora{
     background: rgba(0, 0, 0, 0.7) url('../imagens/midtown-atlanta-skyline-from-park-usa.png');
