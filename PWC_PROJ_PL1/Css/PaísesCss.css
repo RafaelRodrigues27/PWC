@@ -12,14 +12,21 @@
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
-    margin: 10px;
+    margin: 10px auto;
     padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-country img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#country-cards {
+    margin-top: 20px;
 }
 
 #LogotipoFooter {
