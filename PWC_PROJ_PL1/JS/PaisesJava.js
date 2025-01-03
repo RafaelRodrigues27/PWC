@@ -34,9 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
               <p>Population: ${country.population.toLocaleString()}</p>
               <p><strong>Capital:</strong> ${country.capital ? country.capital[0] : "N/A"}</p>
               <p><strong>Idioma:</strong> ${Object.values(country.languages).join(", ")}</p>
-              <button class="btn btn-primary" onclick="viewDetails('${country.name.common}')">Ver Detalhes</button>
+              <button class="btn btn-primary" onclick="('${country.name.common}')">Ver Detalhes</button>
               <button class="btn btn-success" onclick='addFavoritos(${JSON.stringify(country)})'>Adicionar aos Favoritos</button>
           `;
+          // Add click event listener to redirect to details page
+        card.addEventListener("click", () => {
+          window.location.href = `DetalhesPaíses.html?code=${country.cca3}`;
+      });
+          
           countryCardsContainer.appendChild(card);
       });
   }
