@@ -29,6 +29,12 @@ function renderCountries(countries) {
     const card = document.createElement("div");
     card.classList.add("country-card", "text-center");
 
+    // Adicionar evento de clique no card
+    card.addEventListener("click", () => {
+        // Redirecionar para outra página com o código do país
+        window.location.href = `DetalhesPaíses.html?code=${country.cca3}`;
+    });
+
     // Adicionar imagem da bandeira
     const img = document.createElement("img");
     img.src = country.flags.png;
