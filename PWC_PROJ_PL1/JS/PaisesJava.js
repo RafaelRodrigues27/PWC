@@ -109,5 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Tornar a função global para o evento onclick
     window.addFavoritos = addFavoritos;
   });
+
   
+  //teste
   
