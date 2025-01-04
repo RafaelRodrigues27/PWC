@@ -3,11 +3,6 @@
     height: 20%;
 }
 
-#LogotipoFooter{
-    width: 20%;
-    height: 20%;
-}
-
 #header{
     padding: 20px;
 }
@@ -24,6 +19,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#LogotipoFooter{
+    width: 20%;
+    height: 20%;
 }
 
 .social-icons {
