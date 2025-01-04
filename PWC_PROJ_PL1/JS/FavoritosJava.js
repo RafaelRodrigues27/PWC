@@ -3,30 +3,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const maxItemsPerPage = 9;
   let currentPage = 1;
 
-  // Carregar favoritos do localStorage
+  // Load favorite countries from WebStorage
   function loadFavorites() {
       const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
       renderFavorites(favorites);
       setupPagination(favorites);
   }
 
-  // Renderizar favoritos
+  // Render favorite countries
   function renderFavorites(countries) {
-      favoritesContainer.innerHTML = ""; // Limpar contêiner
+      favoritesContainer.innerHTML = ""; // Cleans container
       if (countries.length === 0) {
+        // If there are no favorite countries it displays a message
           favoritesContainer.innerHTML = "<p>Sem países favoritos ainda!</p>";
           return;
       }
 
-      // Calcular os itens da página atual
+      // Calculate itens on the current page
       const startIndex = (currentPage - 1) * maxItemsPerPage;
       const endIndex = startIndex + maxItemsPerPage;
       const currentItems = countries.slice(startIndex, endIndex);
 
+      // Create a card for each country
       currentItems.forEach(country => {
           const card = document.createElement("div");
           card.className = "col card-country";
 
+          // Card country information such as: Population, Capital and Language. Also has a details button and a remove one.
           card.innerHTML = `
               <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
               <h5>${country.name.common}</h5>
@@ -40,13 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // Configurar paginação
+  // Pagination Configs
   function setupPagination(countries) {
       const paginationContainer = document.getElementById("pagination-container");
-      paginationContainer.innerHTML = ""; // Limpar paginação
+      paginationContainer.innerHTML = ""; // Clean Pagination
       const totalPages = Math.ceil(countries.length / maxItemsPerPage);
 
-      // Botão Anterior
+      // Button "Previous"
       const prevButton = document.createElement("button");
       prevButton.className = "btn btn-outline-primary mx-1";
       prevButton.textContent = "Anterior";
@@ -60,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       paginationContainer.appendChild(prevButton);
 
-      // Botões de Páginas
+      // Numeric Buttons
       for (let i = 1; i <= totalPages; i++) {
           const button = document.createElement("button");
           button.className = "btn btn-outline-primary mx-1";
@@ -79,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
           paginationContainer.appendChild(button);
       }
 
-      // Botão Seguinte
+      // Button "Next"
       const nextButton = document.createElement("button");
       nextButton.className = "btn btn-outline-primary mx-1";
       nextButton.textContent = "Seguinte";
@@ -94,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       paginationContainer.appendChild(nextButton);
   }
 
-  // Remover país dos favoritos
+  // Remove Country from favorites
   window.removeFavorito = function (countryName) {
       let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
       favorites = favorites.filter(country => country.name.common !== countryName);
@@ -102,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       loadFavorites();
   };
 
-  // Adicionar um contêiner para paginação no HTML
+  // Container for pagination controls
   const paginationContainer = document.createElement("div");
   paginationContainer.id = "pagination-container";
   paginationContainer.className = "text-center mt-4";
