@@ -7,6 +7,28 @@
     padding: 20px;
 }
 
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+p {
+    margin: 10px 0;
+    color: #555;
+}
+
+strong {
+    color: #000;
+}
+
+.details-container {
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+
+
 #LogotipoFooter {
     width: 20%;
     height: 20%;
@@ -61,24 +83,4 @@
 .social-icons a:hover {
     background-color: #007bff;
     color: #fff;
-}
-
-.details-container {
-    text-align: center;
-    padding: 20px;
-    margin: 20px auto;
-}
-
-h1 {
-    font-size: 24px;
-    color: #333;
-}
-
-p {
-    margin: 10px 0;
-    color: #555;
-}
-
-strong {
-    color: #000;
 }
