@@ -20,11 +20,11 @@
 }
 
 #Mensagem {
-    margin-top: 10px; /* Adds space above the "Mensagem" input */
+    margin-top: 10px;
 }
 
 .form-check:last-of-type {
-    margin-bottom: 20px; /* Add spacing below the last radio button */
+    margin-bottom: 20px;
 }
 
 #zonaConteudo{
