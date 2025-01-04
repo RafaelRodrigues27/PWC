@@ -12,29 +12,18 @@
     padding: 20px;
 }
 
-.footer {
-    background-color: #f8f9fa;
-    padding: 40px 0;
+#Em_Construção{
+    width: 30%;
+    height: 30%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
 }
 
-.footer-links {
-    margin-bottom: 20px; 
-}
-
-.footer-links a {
-    color: #000;
-    text-decoration: none;
-    margin: 0 20px; 
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-.footer-divider {
-    border-top: 1px solid #ccc;
-    margin: 20px auto;
-    width: 100%;
+#parent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .social-icons {
@@ -59,16 +48,27 @@
     color: #fff;
 }
 
-#Em_Construção{
-    width: 30%;
-    height: 30%;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
 }
 
-#parent-container {
-    display: flex; /* Enable flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+.footer-links {
+    margin-bottom: 20px; 
+}
+
+.footer-links a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 20px; 
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-divider {
+    border-top: 1px solid #ccc;
+    margin: 20px auto;
+    width: 100%;
 }
