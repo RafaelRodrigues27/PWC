@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let countriesData = [];
     let currentPage = 1;
   
+    // Function to add a country to the favorites in WebStorage
     function addFavoritos(country) {
         let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
         if (!favorites.some(fav => fav.name.common === country.name.common)) {
@@ -19,15 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
   
+    // Function to render country cards
     function renderCountryCards(page = 1, filteredData = countriesData) {
-        countryCardsContainer.innerHTML = "";
+        countryCardsContainer.innerHTML = ""; 
         const start = (page - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-        const countriesToShow = filteredData.slice(start, end);
+        const end = start + itemsPerPage; 
+        const countriesToShow = filteredData.slice(start, end); 
   
+        // Creates a card for each country
         countriesToShow.forEach(country => {
             const card = document.createElement("div");
-            card.className = "col card-country";
+            card.className = "col card-country"; 
             card.innerHTML = `
                 <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
                 <h5>${country.name.common}</h5>
@@ -45,46 +48,50 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
   
+    // Render pagination controls
     function renderPagination(filteredData = countriesData) {
-        paginationContainer.innerHTML = "";
+        paginationContainer.innerHTML = ""; 
         const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   
+        // Function to create pagination items
         const createPageItem = (page, label = page) => {
             const li = document.createElement("li");
             li.className = `page-item ${page === currentPage ? "active" : ""}`;
             li.innerHTML = `<a class="page-link" href="#">${label}</a>`;
             li.addEventListener("click", () => {
-                currentPage = page;
+                currentPage = page; 
                 renderCountryCards(currentPage, filteredData);
-                renderPagination(filteredData);
+                renderPagination(filteredData); 
             });
             return li;
         };
   
+        // Previous button if not on the first page
         if (currentPage > 1) {
             paginationContainer.appendChild(createPageItem(currentPage - 1, "Anterior"));
         }
   
+        // Create page number buttons for each page
         for (let i = 1; i <= totalPages; i++) {
-            paginationContainer.appendChild(createPageItem(i));
+            paginationContainer.appendChild(createPageItem(i)); // Add page number buttons
         }
   
+        // Add "Next" button if not on the last page
         if (currentPage < totalPages) {
             paginationContainer.appendChild(createPageItem(currentPage + 1, "Próximo"));
         }
     }
   
+    // Search function
     function handleSearch(event) {
-        event.preventDefault(); // Evita o recarregamento da página
+        event.preventDefault(); 
         const searchTerm = searchInput.value.trim().toLowerCase();
   
         if (searchTerm === "") {
-            // Se o campo de pesquisa estiver vazio, exibe todos os países
             currentPage = 1;
             renderCountryCards(currentPage);
             renderPagination();
         } else {
-            // Filtra os países com base no termo de pesquisa
             const filteredCountries = countriesData.filter(country =>
                 country.name.common.toLowerCase().includes(searchTerm)
             );
@@ -93,26 +100,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 countryCardsContainer.innerHTML = "<p>Nenhum país encontrado.</p>";
                 paginationContainer.innerHTML = "";
             } else {
-                currentPage = 1;
-                renderCountryCards(currentPage, filteredCountries);
-                renderPagination(filteredCountries);
+                currentPage = 1; 
+                renderCountryCards(currentPage, filteredCountries); 
+                renderPagination(filteredCountries); 
             }
         }
     }
   
+    // Fetch country data from the API 
     fetch(apiURL)
         .then(response => response.json())
         .then(data => {
-            countriesData = data;
-            renderCountryCards(currentPage);
+            countriesData = data; 
+            renderCountryCards(currentPage); 
             renderPagination();
         })
         .catch(error => console.error("Erro ao carregar dados da API:", error));
   
     searchForm.addEventListener("submit", handleSearch);
   
+    // addFavoritos function globally
     window.addFavoritos = addFavoritos;
-    window.viewDetails = function (countryName) {
-        alert(`Exibindo detalhes para ${countryName}`);
-    };
-  });
+});

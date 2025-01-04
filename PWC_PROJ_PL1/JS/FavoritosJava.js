@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       loadFavorites();
   };
 
-  // Container for pagination controls
+  // container for pagination controls
   const paginationContainer = document.createElement("div");
   paginationContainer.id = "pagination-container";
   paginationContainer.className = "text-center mt-4";
