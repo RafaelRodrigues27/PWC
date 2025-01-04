@@ -3,6 +3,31 @@
     height: 20%;
 }
 
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px; /* Ajusta a altura dos indicadores em relação ao fundo da imagem */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* Espaçamento entre os indicadores */
+    list-style: none; /* Remove bullets */
+    margin: 0;
+    padding: 0;
+    z-index: 10; /* Garante que os indicadores fiquem acima da imagem */
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 60px; /* Largura da linha */
+    height: 4px; /* Altura da linha */
+    background-color: rgba(255, 255, 255, 0.5); /* Cor das linhas */
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-indicators .active {
+    background-color: #007bff; /* Cor da linha ativa */
+}
 
 #header{
     padding: 20px;
@@ -15,14 +40,6 @@ body{
 
 .carousel {
     position: relative;
-}
-
-.carousel-indicators {
-    position: absolute;
-    bottom: -30px; /* Ajuste a posição vertical conforme necessário */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
 }
 
 .carousel-control-prev, .carousel-control-next {
@@ -49,8 +66,6 @@ button.btn-explore {
     z-index: 4;
     position: relative;
 }
-
-
 
 #randomPaisesContainer .card {
     margin: 10px;
