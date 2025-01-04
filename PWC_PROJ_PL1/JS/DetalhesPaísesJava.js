@@ -15,53 +15,53 @@ async function fetchCountryDetails(code) {
   }
 }
 
-// Função para renderizar os detalhes do país
+// Função para renderizar os detalhes do país em formato de tabela
 function renderCountryDetails(country) {
   const container = document.getElementById("countryDetailsContainer");
   container.innerHTML = ""; // Limpa o container
 
-  // Nome oficial do país
-  const name = document.createElement("h1");
-  name.innerText = country.name.official;
+  // Criar tabela para exibir detalhes
+  const table = document.createElement("table");
+  table.classList.add("table", "table-bordered", "table-striped");
 
-  // Bandeira do país
-  const flag = document.createElement("img");
-  flag.src = country.flags.png;
-  flag.alt = `Bandeira de ${country.name.official}`;
-  flag.classList.add("country-flag");
+  // Adicionar cabeçalho
+  const thead = document.createElement("thead");
+  thead.innerHTML = `
+    <tr>
+      <th scope="col">Campo</th>
+      <th scope="col">Detalhe</th>
+    </tr>
+  `;
+  table.appendChild(thead);
 
-  // Capital do país
-  const capital = document.createElement("p");
-  capital.innerHTML = `<strong>Capital:</strong> ${country.capital ? country.capital[0] : "N/A"}`;
+  // Adicionar corpo da tabela
+  const tbody = document.createElement("tbody");
 
-  // Região e sub-região
-  const region = document.createElement("p");
-  region.innerHTML = `<strong>Região:</strong> ${country.region} - ${country.subregion || "N/A"}`;
+  // Adicionar linhas com os detalhes
+  addTableRow(tbody, "Nome Oficial", country.name.official);
+  addTableRow(tbody, "Bandeira", `<img src="${country.flags.png}" alt="Bandeira de ${country.name.official}" class="img-fluid" style="max-width: 100px;">`);
+  addTableRow(tbody, "Capital", country.capital ? country.capital[0] : "N/A");
+  addTableRow(tbody, "Região", country.region);
+  addTableRow(tbody, "Sub-região", country.subregion || "N/A");
+  addTableRow(tbody, "População", country.population.toLocaleString());
+  addTableRow(tbody, "Idiomas", country.languages ? Object.values(country.languages).join(", ") : "N/A");
+  addTableRow(tbody, "Moeda", country.currencies
+    ? Object.values(country.currencies).map(currency => `${currency.name} (${currency.symbol})`).join(", ")
+    : "N/A"
+  );
 
-  // População
-  const population = document.createElement("p");
-  population.innerHTML = `<strong>População:</strong> ${country.population.toLocaleString()}`;
+  table.appendChild(tbody);
+  container.appendChild(table);
+}
 
-  // Idiomas
-  const languages = document.createElement("p");
-  const languageList = country.languages ? Object.values(country.languages).join(", ") : "N/A";
-  languages.innerHTML = `<strong>Idiomas:</strong> ${languageList}`;
-
-  // Moeda
-  const currencies = document.createElement("p");
-  const currencyList = country.currencies
-    ? Object.values(country.currencies).map((currency) => `${currency.name} (${currency.symbol})`).join(", ")
-    : "N/A";
-  currencies.innerHTML = `<strong>Moeda:</strong> ${currencyList}`;
-
-  // Montar os detalhes no container
-  container.appendChild(name);
-  container.appendChild(flag);
-  container.appendChild(capital);
-  container.appendChild(region);
-  container.appendChild(population);
-  container.appendChild(languages);
-  container.appendChild(currencies);
+// Função para adicionar uma linha na tabela
+function addTableRow(tbody, field, detail) {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td><strong>${field}</strong></td>
+    <td>${detail}</td>
+  `;
+  tbody.appendChild(row);
 }
 
 // Buscar e renderizar os detalhes do país ao carregar a página

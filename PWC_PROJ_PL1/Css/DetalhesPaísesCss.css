@@ -63,22 +63,10 @@
     color: #fff;
 }
 
-/* New Styles for Country Details Page */
 .details-container {
     text-align: center;
-    background: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 90%;
-    margin: 20px auto; /* Centering and spacing */
-}
-
-.country-flag {
-    max-width: 100%;
-    height: auto;
-    margin: 20px 0;
+    margin: 20px auto;
 }
 
 h1 {
