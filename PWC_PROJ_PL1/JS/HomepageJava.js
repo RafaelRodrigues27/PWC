@@ -1,11 +1,11 @@
-// Função para buscar e processar dados dos países
+// Search and procces API info
 async function getRandomCountries() {
   const url = "https://restcountries.com/v3.1/all";
   try {
     const response = await fetch(url);
     const countries = await response.json();
     
-    // Selecionar 3 países aleatórios
+    // Select 3 random countries
     const randomCountries = getRandomElements(countries, 3);
     renderCountries(randomCountries);
   } catch (error) {
@@ -13,49 +13,46 @@ async function getRandomCountries() {
   }
 }
 
-// Função para selecionar elementos aleatórios de um array
+// Random elements from the array (countries)
 function getRandomElements(array, count) {
   const shuffled = array.sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
 }
 
-// Função para renderizar os países na página
+// Render countries on the page
 function renderCountries(countries) {
   const container = document.getElementById("randomPaisesContainer");
-  container.innerHTML = ""; // Limpa o container antes de renderizar novos países
+  container.innerHTML = "";
 
+  //Create Card
   countries.forEach((country) => {
-    // Criar o card
     const card = document.createElement("div");
     card.classList.add("country-card", "text-center");
 
-    // Adicionar evento de clique no card
     card.addEventListener("click", () => {
-        // Redirecionar para outra página com o código do país
         window.location.href = `DetalhesPaíses.html?code=${country.cca3}`;
     });
 
-    // Adicionar imagem da bandeira
+    // Img flag
     const img = document.createElement("img");
     img.src = country.flags.png;
     img.alt = `Bandeira de ${country.name.official}`;
     img.classList.add("country-flag");
 
-    // Adicionar o nome do país
+    // Name country
     const name = document.createElement("p");
     name.classList.add("country-name");
     name.innerText = country.name.official;
 
-    // Montar o card
+    //connect img and name to card
     card.appendChild(img);
     card.appendChild(name);
 
-    // Adicionar o card ao container
+    //Add card to container
     container.appendChild(card);
   });
 }
 
-// Executar ao carregar a página
 window.onload = function () {
   getRandomCountries();
 };
