@@ -3,39 +3,39 @@
     height: 20%;
 }
 
+#header{
+    padding: 20px;
+}
+
+.header-container {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
 .carousel-indicators {
     position: absolute;
-    bottom: 10px; /* Ajusta a altura dos indicadores em relação ao fundo da imagem */
+    bottom: 10px; 
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
-    gap: 8px; /* Espaçamento entre os indicadores */
-    list-style: none; /* Remove bullets */
+    gap: 8px; 
+    list-style: none; 
     margin: 0;
     padding: 0;
-    z-index: 10; /* Garante que os indicadores fiquem acima da imagem */
+    z-index: 10;
 }
 
 .carousel-indicators [data-bs-target] {
-    width: 60px; /* Largura da linha */
-    height: 4px; /* Altura da linha */
-    background-color: rgba(255, 255, 255, 0.5); /* Cor das linhas */
+    width: 60px; 
+    height: 4px; 
+    background-color: rgba(255, 255, 255, 0.5); 
     border: none;
     transition: background-color 0.3s ease;
 }
 
 .carousel-indicators .active {
-    background-color: #007bff; /* Cor da linha ativa */
-}
-
-#header{
-    padding: 20px;
-}
-
-body{
-    text-align: center;
-    margin: 0%;
+    background-color: #007bff; 
 }
 
 .carousel {
@@ -43,7 +43,7 @@ body{
 }
 
 .carousel-control-prev, .carousel-control-next {
-    z-index: 3; /* Mantém os controles acima de outros elementos */
+    z-index: 3;
     top: 50%;
     transform: translateY(-50%);
     width: 5%;
@@ -51,7 +51,7 @@ body{
 }
 
 button.carousel-control-prev-icon,button.carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.5); /* Ajuste para maior visibilidade */
+    background-color: rgba(0, 0, 0, 0.5); 
     border-radius: 50%;
     padding: 10px;
 }
@@ -62,55 +62,15 @@ button.carousel-control-next-icon:hover {
 }
 
 button.btn-explore {
-    margin-top: 20px; /* Adicione espaço entre o texto e o botão */
+    margin-top: 20px;
     z-index: 4;
     position: relative;
 }
 
-#randomPaisesContainer .card {
-    margin: 10px;
-}
-  
-.header-container {
+body{
     text-align: center;
-    margin-bottom: 60px;
+    margin: 0%;
 }
-  
-.country-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px; /* Espaçamento maior entre os cards */
-    flex-wrap: wrap;
-    margin-bottom: 60px; /* Adiciona espaço abaixo da seção de países */
-}
-  
-.country-card {
-    border: 2px solid #ddd; /* Borda padrão */
-    border-radius: 10px;
-    padding: 30px; /* Aumenta o espaço interno */
-    text-align: center;
-    width: 250px; /* Largura maior para os cards */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s, border-color 0.3s;
-}
-  
-.country-card:hover {
-    transform: scale(1.1); /* Leve ampliação no hover */
-    border-color: #007bff; /* Borda azul no hover */
-}
-  
-.country-flag {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-  
-.country-name {
-    margin-top: 20px; /* Espaçamento entre a bandeira e o nome */
-    font-size: 20px; /* Fonte maior para o nome */
-    font-weight: bold;
-}
-  
 
 h1{
     font-size: 50px;
@@ -118,10 +78,6 @@ h1{
     text-align: center;
     font-weight: bold;
     margin-top: 40px;
-}
-
-.card{
-    padding: 20px;
 }
 
 #Japão{
@@ -170,11 +126,50 @@ h1{
     font-weight: bold;
 }
 
-#LogotipoFooter{
-    width: 20%;
-    height: 20%;
+#randomPaisesContainer .card {
+    margin: 10px;
 }
 
+.card{
+    padding: 20px;
+    width: 18rem;
+}
+  
+.country-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; 
+    flex-wrap: wrap;
+    margin-bottom: 60px; 
+}
+  
+.country-card {
+    border: 2px solid #ddd; 
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    width: 250px; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, border-color 0.3s;
+}
+  
+.country-card:hover {
+    transform: scale(1.1); 
+    border-color: #007bff; 
+}
+  
+.country-flag {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+  
+.country-name {
+    margin-top: 20px; 
+    font-size: 20px;
+    font-weight: bold;
+}
+  
 #SobreNos{
     padding-top: 20px;
     padding-bottom: 60px;
@@ -185,6 +180,11 @@ h1{
 
 #SobreNos h1{
     font-weight: bold;
+}
+
+#LogotipoFooter{
+    width: 20%;
+    height: 20%;
 }
 
 footer {
