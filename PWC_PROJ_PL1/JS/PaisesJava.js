@@ -19,18 +19,36 @@ document.addEventListener("DOMContentLoaded", () => {
             alert(`${country.name.common} já está nos favoritos!`);
         }
     }
-  
+
+    // Function to remove a country to the favorites in WebStorage
+    function removeFavorito(countryName) {
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        const initialLength = favorites.length;
+        // Filtra a lista, removendo o país pelo nome
+        favorites = favorites.filter(fav => fav.name.common !== countryName);
+        if (favorites.length < initialLength) {
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+            alert(`${countryName} foi removido dos favoritos!`);
+        } else {
+            alert(`${countryName} não está nos favoritos!`);
+        }
+    }
+    
+    
+    
     // Function to render country cards
     function renderCountryCards(page = 1, filteredData = countriesData) {
-        countryCardsContainer.innerHTML = ""; 
+        countryCardsContainer.innerHTML = "";
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
         const start = (page - 1) * itemsPerPage;
-        const end = start + itemsPerPage; 
-        const countriesToShow = filteredData.slice(start, end); 
-  
-        // Creates a card for each country
+        const end = start + itemsPerPage;
+        const countriesToShow = filteredData.slice(start, end);
+    
         countriesToShow.forEach(country => {
+            const isFavorite = favorites.some(fav => fav.name.common === country.name.common);
+    
             const card = document.createElement("div");
-            card.className = "col card-country"; 
+            card.className = "col card-country";
             card.innerHTML = `
                 <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
                 <h5>${country.name.common}</h5>
@@ -38,15 +56,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p><strong>Capital:</strong> ${country.capital ? country.capital[0] : "N/A"}</p>
                 <p><strong>Idioma:</strong> ${Object.values(country.languages).join(", ")}</p>
                 <button class="btn btn-primary" onclick="window.location.href = 'DetalhesPaíses.html?code=${country.cca3}'">Ver Detalhes</button>
-                <button class="btn btn-success">Adicionar aos Favoritos</button>
+                ${isFavorite
+                    ? `<button class="btn btn-danger btn-remove">Remover dos Favoritos</button>`
+                    : `<button class="btn btn-success btn-add">Adicionar aos Favoritos</button>`
+                }
             `;
-  
-            const addToFavoritesButton = card.querySelector(".btn-success");
-            addToFavoritesButton.addEventListener("click", () => addFavoritos(country));
-  
+    
+            // Adiciona eventos aos botões
+            const addToFavoritesButton = card.querySelector(".btn-add");
+            const removeFavoritesButton = card.querySelector(".btn-remove");
+    
+            if (addToFavoritesButton) {
+                addToFavoritesButton.addEventListener("click", () => {
+                    addFavoritos(country);
+                    renderCountryCards(page, filteredData); // Atualiza a interface
+                });
+            }
+    
+            if (removeFavoritesButton) {
+                removeFavoritesButton.addEventListener("click", () => {
+                    removeFavorito(country.name.common);
+                    renderCountryCards(page, filteredData); // Atualiza a interface
+                });
+            }
+    
             countryCardsContainer.appendChild(card);
         });
     }
+    
   
     // Render pagination controls
     function renderPagination(filteredData = countriesData) {
