@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <p><strong>População:</strong> ${country.population.toLocaleString()}</p>
               <p><strong>Capital:</strong> ${country.capital ? country.capital[0] : "N/A"}</p>
               <p><strong>Idioma:</strong> ${Object.values(country.languages).join(", ")}</p>
+                       <button class="btn btn-primary" onclick="window.location.href = 'DetalhesPaíses.html?code=${country.cca3}'">Ver Detalhes</button>
               <button class="btn btn-danger" onclick='removeFavorito("${country.name.common}")'>Remover dos Favoritos</button>
           `;
 
